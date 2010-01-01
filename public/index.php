@@ -56,7 +56,7 @@ class Index
 	 			$obj->show();
 	 			break;
 			default:
-				echo "<br>sorry we are unable to serve requested page";
+				echo "<br>Requested page is not implemented yet";
 				break;
 		}
 	}

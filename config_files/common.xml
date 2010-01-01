@@ -9,8 +9,8 @@
 		</menubar>
 		<account_menubar>
 			<menu1>Projects</menu1>
-			<menu2>Logout</menu2>
-			<menu3>Settings</menu3>
+			<menu2>Profile</menu2>
+			<menu3>Logout</menu3>
 		</account_menubar>
 	</header>
 	<footer>This is footer</footer>

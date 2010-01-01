@@ -8,8 +8,8 @@
 	<?php
 		if(isset($_SESSION["login_status"])){ ?>
 <a href="?page=project"><?php echo $this->account_menubar->menu1; ?></a>
-    <a href="?service=logout"><?php echo $this->account_menubar->menu2; ?></a>
-    <a href="?page=settings"><?php echo $this->account_menubar->menu3; ?></a>
+    <a href="?page=profile"><?php echo $this->account_menubar->menu2; ?></a>
+    <a href="?service=logout"><?php echo $this->account_menubar->menu3; ?></a>
 <?php	}else{ ?>
 <a href="?page=signin"><?php echo $this->menubar->menu1; ?></a>
     <a href="?page=about"><?php echo $this->menubar->menu2; ?></a>
