@@ -10,9 +10,9 @@ include_once("page.php");
  		parent::__construct();
  	}
  	public function show(){
- 		parent::get_header();
- 		include_once("../public/html/homepage_body.html");
- 		parent::get_footer();
+ 			parent::get_header();
+ 			include_once("../public/html/homepage_body.html");
+ 			parent::get_footer();
  	}
 } 
  ?>

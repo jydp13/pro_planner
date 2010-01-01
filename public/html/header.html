@@ -4,7 +4,7 @@
 	<title><?php echo $this->title; ?></title>
 </head>
 <body>
-	<img src="<?php echo $this->logo_file; ?>" alt="logo">
+	<a href="?"><img src="<?php echo $this->logo_file; ?>" alt="logo"></a>
 	<?php
 		if(isset($_SESSION["login_status"])){ ?>
 <a href="?page=project"><?php echo $this->account_menubar->menu1; ?></a>

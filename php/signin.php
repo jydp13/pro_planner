@@ -11,9 +11,16 @@ class SignIn extends Page
 		parent::__construct();
 	}
 	public function show(){
-		parent::get_header();
- 		include_once("../public/html/signinpage_body.html");
- 		parent::get_footer();
+		if (isset($_SESSION["login_status"])) {
+				include_once("host.php");
+				$host_obj=new Host();
+				$url=$host_obj->get_host()."?page=user_account";
+				$host_obj->internal_redirect($url);
+		}else{
+			parent::get_header();
+ 			include_once("../public/html/signinpage_body.html");
+ 			parent::get_footer();
+		}
 	}
 }
 ?>

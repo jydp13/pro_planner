@@ -89,7 +89,6 @@ class Index
 		
 	}
 	private function user_logout(){
-		unset($_SESSION["login_status"]);
 		session_destroy();
 		include_once("../php/host.php");
 		$host_obj=new Host();
