@@ -11,8 +11,7 @@
 	function __construct()
 	{
 		$db_config_xml=simplexml_load_file("../config_files/db_config.xml") or die("unable to load config file");
-		$host_config_xml=simplexml_load_file("../config_files/host_config.xml") or die("unable to load config file");
-		$this->db_host=$host_config_xml->web_server;
+		$this->db_host=$db_config_xml->database_server;
 		$this->db_user=$db_config_xml->username;
 		$this->db_user_pass=$db_config_xml->password;
 		$this->database=$db_config_xml->database;

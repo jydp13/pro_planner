@@ -2,7 +2,6 @@
 <common>
 	<title>Project Planner</title>
 	<header>
-		<logo>Logo file name</logo>
 		<menubar>
 			<menu1>Sign In</menu1>
 			<menu2>About</menu2>

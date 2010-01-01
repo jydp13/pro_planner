@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="header">
-	<a href="/"><img src="<?php echo $this->logo_file; ?>" alt="logo"></a>
+	<a href="/"><img src="public_resource_files/<?php echo $this->logo_file; ?>" alt="logo"></a>
 		<?php if(isset($_SESSION["login_status"])){ ?>
 	<a onclick="ajax_get('projects','main')">
 		<?php echo $this->account_menubar->menu1; ?>
@@ -27,6 +27,7 @@
 		<?php } ?>
 </div>
 <div id="main">
+	
 
 
 	
