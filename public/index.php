@@ -55,6 +55,12 @@ class Index
 	 			$obj=new Account();
 	 			$obj->show();
 	 			break;
+	 		case 'profile':
+	 			include_once("html/profile.html");
+	 			break;
+	 		case 'projects':
+	 			echo "your project list will be here";
+	 			break;
 			default:
 				echo "<br>Requested page is not implemented yet";
 				break;
@@ -89,6 +95,12 @@ class Index
 		
 	}
 	private function user_logout(){
+		//deleting cookies variable by setting time of following cookies one hour ago
+		setcookie ("email", "", time() - 3600);
+		setcookie ("firstname", "", time() - 3600);
+		setcookie ("lastname", "", time() - 3600);
+		setcookie ("mobileno", "", time() - 3600);
+		//destroying all session variable for example session variable login_status
 		session_destroy();
 		include_once("../php/host.php");
 		$host_obj=new Host();

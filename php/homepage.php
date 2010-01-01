@@ -11,7 +11,11 @@ include_once("page.php");
  	}
  	public function show(){
  			parent::get_header();
- 			include_once("../public/html/homepage_body.html");
+ 			if (isset($_SESSION["login_status"])) {
+ 				include_once("../public/html/account_home.html");
+ 			}else{
+ 				include_once("../public/html/homepage.html");
+ 			}
  			parent::get_footer();
  	}
 } 

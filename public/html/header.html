@@ -2,16 +2,31 @@
 <html>
 <head>
 	<title><?php echo $this->title; ?></title>
+	<script type="text/javascript" src="/javascript/ajax.js"></script>
 </head>
 <body>
-	<a href="?"><img src="<?php echo $this->logo_file; ?>" alt="logo"></a>
-	<?php
-		if(isset($_SESSION["login_status"])){ ?>
-<a href="?page=project"><?php echo $this->account_menubar->menu1; ?></a>
-    <a href="?page=profile"><?php echo $this->account_menubar->menu2; ?></a>
-    <a href="?service=logout"><?php echo $this->account_menubar->menu3; ?></a>
-<?php	}else{ ?>
-<a href="?page=signin"><?php echo $this->menubar->menu1; ?></a>
-    <a href="?page=about"><?php echo $this->menubar->menu2; ?></a>
-<?php } ?>
+	<div id="header">
+	<a href="/"><img src="<?php echo $this->logo_file; ?>" alt="logo"></a>
+		<?php if(isset($_SESSION["login_status"])){ ?>
+	<a onclick="ajax_get('projects','main')">
+		<?php echo $this->account_menubar->menu1; ?>
+	</a>
+    <a onclick="ajax_get('profile','main')">
+    	<?php echo $this->account_menubar->menu2; ?>
+    </a>
+    <a href="?service=logout">
+    	<?php echo $this->account_menubar->menu3; ?>
+    </a>
+		<?php	}else{ ?>
+	<a href="?page=signin">
+		<?php echo $this->menubar->menu1; ?>
+	</a>
+    <a href="?page=about">
+    	<?php echo $this->menubar->menu2; ?>
+    </a>
+		<?php } ?>
+</div>
+<div id="main">
+
+
 	

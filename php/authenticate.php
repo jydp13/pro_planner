@@ -17,7 +17,12 @@ class Authenticate extends Database
 		$sql="SELECT * FROM user WHERE email='".$username."' AND password='".$password."'";
 		$result=$conn->query($sql);
 		if (mysqli_num_rows($result)) {
+				$row=mysqli_fetch_assoc($result);
 				$_SESSION["login_status"]=1;
+				setcookie("email",$row["email"]);
+				setcookie("mobileno",$row["mobileno"]);
+				setcookie("firstname",$row["firstname"]);
+				setcookie("lastname",$row["lastname"]);
 				include_once("host.php");
 				$host_obj=new Host();
 				$url=$host_obj->get_host()."?page=user_account";
