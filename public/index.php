@@ -6,6 +6,7 @@ session_start();
 class Index
 {
 	private $page,$service;
+	private $php_dir="../php/";
 	function __construct()
 	{
 		if (isset($_GET["page"])) {
@@ -25,33 +26,37 @@ class Index
 			$this->page="home";
 		}
 	}
+	private function import($file){
+		$file_dir=$this->php_dir.$file.".php";
+				include_once($file_dir);
+	}
 	public function get_page(){
 		switch ($this->page) {
 			case 'signin':
-				include_once("../php/signin.php");
+				$this->import("signin");
 				$obj=new SignIn();
 				$obj->show();
 				break;
 			case 'about':
-				include_once("../php/about.php");
+				$this->import("about");
 				$obj=new About();
 				$obj->show();
 				break;
 			case 'home':
-				include_once("../php/homepage.php");
+				$this->import("homepage");
 				$obj=new Home();
 				$obj->show();
 				break; 
 	 		case 'create_account':
-	 			include_once("../php/signup.php");
+	 			$this->import("signup");
 	 			$obj=new SignUp();
 	 			$obj->show();
 	 			break;
 	 		case 'password_recover':
-	 			include_once("../php/pass_recover.php");
+	 			$this->import("pass_recover");
 	 			break;
 	 		case 'user_account':
-	 			include_once("../php/user_account.php");
+	 			$this->import("user_account");
 	 			$obj=new Account();
 	 			$obj->show();
 	 			break;
@@ -69,12 +74,12 @@ class Index
 	public function get_service(){
 		switch ($this->service) {
 			case 'authentication':
-				include_once("../php/authenticate.php");
+			 	$this->import("authenticate");
 				$obj=new Authenticate();
 				$obj->user_check($_POST["username"],$_POST["password"]);
 				break;
 			case 'create_user':
-	 			include_once("../php/create.php");
+				$this->import("create");
 	 			$obj=new Create($_POST["firstname"],$_POST["lastname"],$_POST["email"],$_POST["mobileno"],$_POST["password"]);
 	 			$obj->create_user();
 	 			break;
@@ -102,11 +107,12 @@ class Index
 		setcookie ("mobileno", "", time() - 3600);
 		//destroying all session variable for example session variable login_status
 		session_destroy();
-		include_once("../php/host.php");
+		$this->import("host");
 		$host_obj=new Host();
 		$url=$host_obj->get_host()."?page=signin";
 		$host_obj->internal_redirect($url);
 	}
+		
 }
 //execution start here
 $index_obj=new Index();
