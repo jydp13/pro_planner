@@ -26,10 +26,7 @@ class Index
 			$this->page="home";
 		}
 	}
-	private function import($file){
-		$file_dir=$this->php_dir.$file.".php";
-				include_once($file_dir);
-	}
+
 	public function get_page(){
 		switch ($this->page) {
 			case 'signin':
@@ -54,6 +51,8 @@ class Index
 	 			break;
 	 		case 'password_recover':
 	 			$this->import("pass_recover");
+	 			$obj=new Forget_Password();
+	 			$obj->show();
 	 			break;
 	 		case 'user_account':
 	 			$this->import("user_account");
@@ -61,10 +60,14 @@ class Index
 	 			$obj->show();
 	 			break;
 	 		case 'profile':
-	 			include_once("html/profile.html");
+	 			$this->import("profile");
+	 			$obj=new Profile();
+	 			$obj->show();
 	 			break;
 	 		case 'projects':
-	 			echo "your project list will be here";
+	 			$this->import("projects");
+	 			$obj=new Projects();
+	 			$obj->show();
 	 			break;
 			default:
 				echo "<br>Requested page is not implemented yet";
@@ -111,6 +114,10 @@ class Index
 		$host_obj=new Host();
 		$url=$host_obj->get_host()."?page=signin";
 		$host_obj->internal_redirect($url);
+	}
+	private function import($file){
+		$file_dir=$this->php_dir.$file.".php";
+		include_once($file_dir);
 	}
 		
 }
