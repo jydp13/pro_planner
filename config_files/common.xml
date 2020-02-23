@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<common>
+	<title>Project Planner</title>
+	<header>
+		<logo>Logo file name</logo>
+		<menubar>
+			<menu1>Sign In</menu1>
+			<menu2>About</menu2>
+		</menubar>
+		<account_menubar>
+			<menu1>Projects</menu1>
+			<menu2>Logout</menu2>
+			<menu3>Settings</menu3>
+		</account_menubar>
+	</header>
+	<footer>This is footer</footer>
+</common>
