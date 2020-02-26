@@ -26,7 +26,18 @@ class Index
 			$this->page="home";
 		}
 	}
+/*
+public function get_page($p){
+$this->import("page");
+$page_obj=new Page();
+$page_obj->page_server($p);
+	
+}
 
+
+
+
+*/
 	public function get_page(){
 		switch ($this->page) {
 			case 'signin':
@@ -126,7 +137,7 @@ $index_obj=new Index();
 $page=$index_obj->get_var("page");
 $service=$index_obj->get_var("service");
 if (isset($page)) {
-	$index_obj->get_page();
+	$index_obj->get_page();//$index_obj->get_page($page);
 }else if (isset($service)) {
 	$index_obj->get_service();
 }
